@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {employees} from '../employees'
+import { Component, EventEmitter, OnInit, Output  } from '@angular/core';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +8,15 @@ import {employees} from '../employees'
 })
 export class NavbarComponent implements OnInit {
 
-  employees = employees;
-
-  constructor() { }
+  message:string;
+  constructor(private data: DataService) { }
 
   ngOnInit() {
-
+     this.data.currentMessage.subscribe(message => this.message = message)
   }
+
+  newMessage(buttonClicked:string) {
+    this.data.changeMessage(buttonClicked)
+ }
 
 }

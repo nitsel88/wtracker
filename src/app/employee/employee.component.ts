@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import {employees} from '../employees';
+import {employees} from '../employees';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-employee',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
-//  employees = employees;
-  constructor() { }
-
+  message:string;
+  employees = employees;
+  constructor(private data: DataService) { }
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.message = message);
   }
 
 }

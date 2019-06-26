@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { EmployeeComponent }  from './employee/employee.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'employees/:id', pathMatch: 'full'},
+  { path: 'employees/:id', component: EmployeeComponent },
   { path: 'employees/new', component: EmployeeComponent },
 ];
 
