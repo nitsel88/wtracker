@@ -10,7 +10,12 @@ describe('Service: Data', () => {
     });
   });
 
-  it('should ...', inject([DataService], (service: DataService) => {
+  it('should create service', inject([DataService], (service: DataService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('changeMessage method should change the value to testvalue', async(inject([DataService], (service: DataService) => {
+    service.changeMessage("testvalue");
+    service.currentMessage.subscribe(result => expect(result).toEqual("testvalue")); 
+  })));
 });
