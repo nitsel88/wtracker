@@ -1,9 +1,23 @@
 pipeline {
+    agent any
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'npm --version'
+                echo 'Building..'
+                cmd 'npm install'
+                cmd 'ng start'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
-} 
+}
