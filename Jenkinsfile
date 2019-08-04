@@ -5,8 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                cmd 'npm install'
-                cmd 'ng start'
             }
         }
         stage('Test') {
